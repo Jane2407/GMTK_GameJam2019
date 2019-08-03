@@ -16,6 +16,7 @@ public class DataRecorder : MonoBehaviour
     //Recordng all values every frame
     private void FixedUpdate()
     {
+
         RecordFrame recordFrame = new RecordFrame();
 
         recordFrame.position = transform.position;

@@ -2,18 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataReplay : MonoBehaviour
+public class PlayersCopyController : MonoBehaviour
 {
-    [SerializeField] public bool drawDebugRaycasts = true;
+    [SerializeField]  public bool drawDebugRaycasts = true;
 
-    Rigidbody2D rb2d;
+    Rigidbody2D rb;
 
-    public List<RecordFrame> record;            //List with all frame records from previous player's round
-    int index;                                  //Index of current record frame       
+    [Header("Movement Properties")]
+    [SerializeField] private int maxVel = 5;                     //Player x max velocity
+    [SerializeField] private int minVel = -5;                    //Player x min velocity
+    [SerializeField] private int speed = 10;                    //Player speed
+
+    [Header("Jump Properties")]
+    [SerializeField] public int jumpForce = 9;                   //Force of jump
 
     [Header("Status Flags")]
-    [SerializeField] bool isFacingRight = true;	//Direction player is facing
-  
+    [SerializeField] public bool isOnGround;                     //Is the player on the ground?
+    [SerializeField] public bool isJumping;                      //Is player jumping?
+    [SerializeField] bool isFacingRight = true;				    //Direction player is facing
+    [SerializeField] public bool isHaging;                       //Is player haging on wall?
+
     [Header("Environment Check Properties")]
     public float footOffsetX = .03f;            //X Offset of feet raycast
     public float footOffsetY = -.67f;           //Y Offset of feet raycast
@@ -24,40 +32,29 @@ public class DataReplay : MonoBehaviour
 
     private void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         PhysicsCheck();
 
-        //Checking for any available record frames
-        if (index > record.Count - 1)
-        {
-            //Destroy ghost
-            transform.parent.gameObject.GetComponent<RecordsManager>().playersCopies.Remove(gameObject);
-            Destroy(gameObject);
+        GroundMovement();
+        MidAirMovement();
 
-        }
-        else
-        {
-            //Setting ghost position and rotation from record
-            transform.position = record[index].position;
+        //Limit x velocity
+        rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, minVel, maxVel), rb.velocity.y);
 
-            //Check velocity of the players copy
-            if (record[index].velocity.x > 0 && !isFacingRight)
-                FlipCharacter();
-            else if (record[index].velocity.x < 0 && isFacingRight)
-                FlipCharacter();
-
-            //Adding index for next frame
-            index++;
-        }
+        if (rb.velocity.x > 0 && !isFacingRight)
+            FlipCharacter();
+        else if (rb.velocity.x < 0 && isFacingRight)
+            FlipCharacter();
     }
 
     void PhysicsCheck()
     {
         RaycastHit2D groundCheck = Raycast(new Vector2(footOffsetX, footOffsetY), Vector2.down, groundDistance);
+
 
         if (groundCheck)
         {
@@ -65,10 +62,17 @@ public class DataReplay : MonoBehaviour
             {
                 groundCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
             }
-            else if (groundCheck.collider.tag == "")
+            else if(groundCheck.collider.tag == "")
             {
-                //Death();
+                Death();
             }
+
+            isOnGround = true;
+            isJumping = false;
+        }
+        else
+        {
+            isOnGround = false;
         }
 
         Vector2 grabDir = new Vector2(1f, 0f);
@@ -77,16 +81,38 @@ public class DataReplay : MonoBehaviour
         RaycastHit2D rightWallCheck = Raycast(new Vector2(footOffsetX, eyeHeight), grabDir, grabDistance);
         RaycastHit2D leftWallCheck = Raycast(new Vector2(footOffsetX, eyeHeight), -grabDir, grabDistance);
 
-        if (rightWallCheck||leftWallCheck)
+        if (rightWallCheck || leftWallCheck)
+            isHaging = true;
+        else
+            isHaging = false;
+    }
+
+    void GroundMovement()
+    {
+        //Chacking is player able to move on ground
+        if (isHaging && !isOnGround)
+            return;
+        if (Input.GetAxis("Horizontal") != 0&& isJumping)
         {
-            if (rightWallCheck.collider.tag == "Wall")
+            //Add force for horizontal movement
+            rb.AddForce(Vector2.right * Input.GetAxis("Horizontal") * speed, ForceMode2D.Impulse);
+        }
+    }
+
+    void MidAirMovement()
+    {
+        if (Input.GetAxis("Vertical")>0)
+        {
+            if (isOnGround)
             {
-                rightWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
-            }
-            else if(leftWallCheck.collider.tag == "Wall")
-            {
-                leftWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
-            }
+                rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+                isJumping = true;
+            } 
+            //else if (!isOnGround && !isJumping)
+            //{
+            //    rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+                
+            //}
         }
     }
 
@@ -121,4 +147,11 @@ public class DataReplay : MonoBehaviour
         //Return the results of the raycast
         return hit;
     }
+
+    void Death()
+    {
+
+    }
+
+   
 }
