@@ -56,12 +56,15 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D groundCheck = Raycast(new Vector2(footOffsetX, footOffsetY), Vector2.down, groundDistance);
 
 
-
         if (groundCheck)
         {
             if (groundCheck.collider.tag == "Floor")
             {
                 groundCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
+            }
+            else if(groundCheck.collider.tag == "")
+            {
+                Death();
             }
 
             isOnGround = true;
@@ -89,7 +92,7 @@ public class PlayerController : MonoBehaviour
         //Chacking is player able to move on ground
         if (isHaging && !isOnGround)
             return;
-        if (Input.GetAxis("Horizontal") != 0)
+        if (Input.GetAxis("Horizontal") != 0&& isJumping)
         {
             //Add force for horizontal movement
             rb.AddForce(Vector2.right * Input.GetAxis("Horizontal") * speed, ForceMode2D.Impulse);
@@ -103,12 +106,13 @@ public class PlayerController : MonoBehaviour
             if (isOnGround)
             {
                 rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-            } 
-            else if (!isOnGround && !isJumping)
-            {
-                rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
                 isJumping = true;
-            }
+            } 
+            //else if (!isOnGround && !isJumping)
+            //{
+            //    rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+                
+            //}
         }
     }
 
@@ -142,6 +146,11 @@ public class PlayerController : MonoBehaviour
         }
         //Return the results of the raycast
         return hit;
+    }
+
+    void Death()
+    {
+
     }
 
    
