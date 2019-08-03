@@ -87,6 +87,21 @@ public class PlayerController : MonoBehaviour
             isHaging = true;
         else
             isHaging = false;
+
+        if (rightWallCheck)
+        {
+            if (rightWallCheck.collider.tag == "Wall")
+            {
+                rightWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
+            }
+        }
+        else if (leftWallCheck)
+        {
+            if (leftWallCheck.collider.tag == "Wall")
+            {
+                leftWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
+            }
+        }
     }
 
     void GroundMovement()

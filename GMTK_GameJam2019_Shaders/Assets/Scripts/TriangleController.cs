@@ -11,6 +11,9 @@ public class TriangleController : MonoBehaviour
     [SerializeField] float activeTime;
     [SerializeField] bool isActivated;
 
+    [SerializeField] public bool isOneTime;
+
+
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -43,6 +46,10 @@ public class TriangleController : MonoBehaviour
     {
         isActivated = false;
         rend.enabled = false;
+        if (isOneTime)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 }
