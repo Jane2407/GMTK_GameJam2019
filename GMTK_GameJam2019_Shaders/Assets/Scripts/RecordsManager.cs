@@ -17,6 +17,8 @@ public class RecordsManager : MonoBehaviour
 
     public Transform startPoint;
 
+    public bool isRoundEnd;
+
     private void Start()
     {
         replays = new List<List<RecordFrame>>();
@@ -27,7 +29,7 @@ public class RecordsManager : MonoBehaviour
     //Instantiate player
     void InstantiatePlayer()
     {
-        GameObject go = Instantiate(playerPrefab, transform);
+        GameObject go = Instantiate(playerPrefab, transform.position, Quaternion.identity);
 
         player = go;
     }
@@ -44,8 +46,12 @@ public class RecordsManager : MonoBehaviour
 
     public void EndRound()
     {
-        FreezeAll();
-        Invoke("RestartRound", 4f);
+        if (!isRoundEnd)
+        {
+            FreezeAll();
+            isRoundEnd = true;
+            Invoke("RestartRound", 1f);
+        }
     }
 
     void DeleteAll()
@@ -67,8 +73,10 @@ public class RecordsManager : MonoBehaviour
 
     void RestartRound()
     {
+        DeleteAll();
         InstantiatePlayer();
         InstantiateCopies();
+        isRoundEnd = false;
     }
 
     //Freezing all players and ghost when player died

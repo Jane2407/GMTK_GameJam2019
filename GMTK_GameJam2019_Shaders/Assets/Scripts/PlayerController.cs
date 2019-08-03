@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
             {
                 groundCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
             }
-            else if(groundCheck.collider.tag == "")
+            else if(groundCheck.collider.tag == "Death")
             {
                 Death();
             }
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         //Chacking is player able to move on ground
         if (isHaging && !isOnGround)
             return;
-        if (Input.GetAxis("Horizontal") != 0&& isJumping)
+        if (Input.GetAxis("Horizontal") != 0/*&& isJumping*/)
         {
             //Add force for horizontal movement
             rb.AddForce(Vector2.right * Input.GetAxis("Horizontal") * speed, ForceMode2D.Impulse);
@@ -150,7 +150,8 @@ public class PlayerController : MonoBehaviour
 
     void Death()
     {
-
+        GameObject go= GameObject.FindGameObjectWithTag("RecordsManager");
+        go.GetComponent<RecordsManager>().EndRound();
     }
 
    

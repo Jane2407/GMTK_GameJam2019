@@ -65,10 +65,6 @@ public class DataReplay : MonoBehaviour
             {
                 groundCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
             }
-            else if (groundCheck.collider.tag == "")
-            {
-                //Death();
-            }
         }
 
         Vector2 grabDir = new Vector2(1f, 0f);
@@ -77,13 +73,17 @@ public class DataReplay : MonoBehaviour
         RaycastHit2D rightWallCheck = Raycast(new Vector2(footOffsetX, eyeHeight), grabDir, grabDistance);
         RaycastHit2D leftWallCheck = Raycast(new Vector2(footOffsetX, eyeHeight), -grabDir, grabDistance);
 
-        if (rightWallCheck||leftWallCheck)
+
+        if (rightWallCheck)
         {
             if (rightWallCheck.collider.tag == "Wall")
             {
                 rightWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
             }
-            else if(leftWallCheck.collider.tag == "Wall")
+        }
+        else if (leftWallCheck)
+        {
+            if (leftWallCheck.collider.tag == "Wall")
             {
                 leftWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
             }
