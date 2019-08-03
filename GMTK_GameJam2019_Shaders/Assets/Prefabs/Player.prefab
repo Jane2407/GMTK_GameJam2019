@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5048194412194886342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -121,6 +121,8 @@ MonoBehaviour:
   minVel: -10
   speed: 5
   jumpForce: 15
+  defGravity: 0
+  gravity: 0
   isOnGround: 1
   isJumping: 0
   isFacingRight: 0

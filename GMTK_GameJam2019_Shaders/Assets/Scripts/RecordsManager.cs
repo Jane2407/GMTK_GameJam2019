@@ -30,8 +30,9 @@ public class RecordsManager : MonoBehaviour
     void InstantiatePlayer()
     {
         GameObject go = Instantiate(playerPrefab, transform.position, Quaternion.identity);
-
         player = go;
+
+        Camera.main.GetComponent<CameraFollow>().player = go.transform;
     }
 
     void InstantiateCopies()

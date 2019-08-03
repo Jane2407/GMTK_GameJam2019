@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Jump Properties")]
     [SerializeField] public int jumpForce = 9;                   //Force of jump
+    [SerializeField] public int defGravity;                      //Gravity default
+    [SerializeField] public int gravity;                         //Gravity current
 
     [Header("Status Flags")]
     [SerializeField] public bool isOnGround;                     //Is the player on the ground?
