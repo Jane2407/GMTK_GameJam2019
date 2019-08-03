@@ -76,14 +76,14 @@ public class DataReplay : MonoBehaviour
 
         if (rightWallCheck)
         {
-            if (rightWallCheck.collider.tag == "Wall")
+            if (rightWallCheck.collider.tag == "Floor")
             {
                 rightWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
             }
         }
         else if (leftWallCheck)
         {
-            if (leftWallCheck.collider.tag == "Wall")
+            if (leftWallCheck.collider.tag == "Floor")
             {
                 leftWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
             }
