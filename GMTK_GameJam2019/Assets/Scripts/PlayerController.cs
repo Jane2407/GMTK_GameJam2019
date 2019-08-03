@@ -55,8 +55,15 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit2D groundCheck = Raycast(new Vector2(footOffsetX, footOffsetY), Vector2.down, groundDistance);
 
+
+
         if (groundCheck)
         {
+            if (groundCheck.collider.tag == "Floor")
+            {
+                groundCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
+            }
+
             isOnGround = true;
             isJumping = false;
         }
