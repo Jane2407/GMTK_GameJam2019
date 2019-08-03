@@ -38,11 +38,18 @@ public class LevelManager : MonoBehaviour
                 {
                     child.SetActive(true);
                     child.GetComponent<SpriteRenderer>().enabled = false;
-                    //change bool in child
+                    child.GetComponent<TriangleController>().isOneTime = false;
                 }
                 break;
 
             case Mode.ONETIME:
+
+                //Set all platforms for one time only
+                foreach (GameObject child in level.transform)
+                {
+                    child.SetActive(true);
+                    child.GetComponent<TriangleController>().isOneTime = true;
+                }
                 break;
 
             case Mode.GRAVITY:
@@ -52,10 +59,8 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case Mode.ROTATION:
-
-                
-
                 break;
+
             default:
                 break;
         }
