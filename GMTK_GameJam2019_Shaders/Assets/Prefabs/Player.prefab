@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5048194412194886337}
   - component: {fileID: 5048194412194886338}
   - component: {fileID: 5048194412194886396}
-  - component: {fileID: 1458350092687880568}
+  - component: {fileID: 224341448146873013}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5048194412194886342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.065, y: 0.065, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,10 +72,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9826ac0d3032a5540ae6e94165df5b5f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 34e9adb2316625646ad59c02b83ffec0, type: 3}
   m_Color: {r: 0, g: 0.51346207, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 15, y: 15}
   m_AdaptiveModeThreshold: 0.5
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   record: []
---- !u!60 &1458350092687880568
+--- !u!60 &224341448146873013
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,9 +163,9 @@ PolygonCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15, y: 15}
+    border: {x: 0, y: 0, z: 0, w: 0.14533333}
+    pivot: {x: 0.5, y: 0.29296875}
+    oldSize: {x: 1.024, y: 1.024}
     newSize: {x: 15, y: 15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -173,6 +173,6 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 7.5, y: -7.5}
-      - {x: -7.5, y: 7.5}
-      - {x: -7.5, y: -7.5}
+    - - {x: -0.51, y: -0.3}
+      - {x: 0.51, y: -0.3}
+      - {x: 0, y: 0.58}
