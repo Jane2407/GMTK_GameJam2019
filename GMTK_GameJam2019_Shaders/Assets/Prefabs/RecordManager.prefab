@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391851801668320473}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.76, y: -2.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -52,7 +52,7 @@ MonoBehaviour:
     type: 3}
   playersCopyPrefab: {fileID: 5048194412194886342, guid: 223c5c603bbd3c14885b901f84d39f54,
     type: 3}
-  deathAudio: {fileID: 0}
+  deathAudio: {fileID: 8300000, guid: f31445c133141a942901478502a5da7c, type: 3}
 --- !u!82 &1277013005142750442
 AudioSource:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public string MainMenu;
 
     bool isInMenu;
+    bool hasImpulse;
     
     [SerializeField] public GameObject pausePanel;
     [SerializeField] public GameObject uiPanel;
@@ -54,7 +55,6 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-
     public void UnPauseGame()
     {
         Time.timeScale = 1;
@@ -62,18 +62,25 @@ public class GameManager : MonoBehaviour
         settingPanel.SetActive(false);
         creditsPanel.SetActive(false);
         quitPanel.SetActive(false);
-        uiPanel.SetActive(true);
+
+        if (hasImpulse)
+        {
+            uiPanel.SetActive(true);
+        }
+
         Cursor.lockState = CursorLockMode.Locked;
         isInMenu = false;
     }
 
     public void ShowImpulseIcon()
     {
+        hasImpulse = true;
         uiPanel.SetActive(true);
     }
 
     public void CloseImpulseIcon()
     {
+        hasImpulse = false;
         uiPanel.SetActive(false);
     }
 }

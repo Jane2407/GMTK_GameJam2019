@@ -52,7 +52,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542274294950663960}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -513,10 +513,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685e3b4e0a080cd4fa3e6a67aa45bad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level01: 
-  MainMenu: 
+  Level01: Scene_Level1
+  MainMenu: Scene_MainMenu
   pausePanel: {fileID: 5718524409564366421}
   uiPanel: {fileID: 8935121719566076460}
+  settingPanel: {fileID: 6176490890315927679}
+  creditsPanel: {fileID: 8935121720788182763}
+  quitPanel: {fileID: 8935121720251943583}
 --- !u!1 &1876815715814497158
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +794,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3610607929763522010}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -6142,7 +6145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8935121719566076451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6911,7 +6914,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8935121719875654953}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -7441,7 +7444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8935121720251943582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9844,7 +9847,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8947479489812112910}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 

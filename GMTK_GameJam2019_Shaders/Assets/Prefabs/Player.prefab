@@ -192,7 +192,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   hasImpulse: 0
-  impulseAudio: {fileID: 0}
+  impulseAudio: {fileID: 8300000, guid: 8871c64621886504a969a07abb71868c, type: 3}
   isDead: 0
 --- !u!114 &5048194412194886396
 MonoBehaviour:
