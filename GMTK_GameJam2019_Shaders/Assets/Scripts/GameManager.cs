@@ -9,26 +9,37 @@ public class GameManager : MonoBehaviour
     public string Level01;
     public string MainMenu;
 
-    public GameObject pausePanel;
-    public GameObject inGamePanel;
+    bool isInMenu;
+    
+    [SerializeField] public GameObject pausePanel;
+    [SerializeField] public GameObject uiPanel;
+    [SerializeField] public GameObject settingPanel;
+    [SerializeField] public GameObject creditsPanel;
+    [SerializeField] public GameObject quitPanel;
+
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)&&!isInMenu)
         {
+            isInMenu = true;
             PauseGame();
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && isInMenu)
+        {
+            UnPauseGame();
         }
     }
 
-    public void NextLevel()
+    public void Restart()
     {
-        Application.LoadLevel(Level01);
+        SceneManager.LoadScene(Level01);
     }
 
-    /* public void MainMenu()
+    public void LoadMainMenu()
     {
-        Application.LoadLevel(MainMenu);
-    }*/
+        SceneManager.LoadScene(MainMenu);
+    }
 
     public void ExitGame()
     {
@@ -37,19 +48,32 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        Debug.Log("chamou, madame?");
-            Time.timeScale = 0f;
-            inGamePanel.SetActive(false);
-            pausePanel.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0f;
+        uiPanel.SetActive(false);
+        pausePanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
     }
+
+
     public void UnPauseGame()
     {
         Time.timeScale = 1;
         pausePanel.SetActive(false);
-        inGamePanel.SetActive(true);
+        settingPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+        quitPanel.SetActive(false);
+        uiPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
-        //blnPaused = false;
+        isInMenu = false;
     }
 
+    public void ShowImpulseIcon()
+    {
+        uiPanel.SetActive(true);
+    }
+
+    public void CloseImpulseIcon()
+    {
+        uiPanel.SetActive(false);
+    }
 }

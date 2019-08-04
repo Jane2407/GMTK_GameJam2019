@@ -37,12 +37,16 @@ public class PlayerController : MonoBehaviour
 
     public bool isDead;
 
+    GameManager gm;
+
     private void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         rb2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         hasImpulse = true;
         isDead = false;
+        gm.ShowImpulseIcon();
     }
 
     void FixedUpdate()
@@ -73,7 +77,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 audioSource.PlayOneShot(impulseAudio);
-
+                gm.CloseImpulseIcon();
                 hasImpulse = false;
             }
         }
