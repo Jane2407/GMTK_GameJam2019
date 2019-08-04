@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject pointPanel;
 
 
+    [SerializeField] public AudioSource audioSource;
+
+
     private void Start()
     {
         Time.timeScale = 1;
@@ -61,6 +64,8 @@ public class GameManager : MonoBehaviour
         pausePanel.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        audioSource.Pause();
     }
 
     public void UnPauseGame()
@@ -79,6 +84,8 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         isInMenu = false;
+
+        audioSource.Play();
     }
 
     public void ShowImpulseIcon()
