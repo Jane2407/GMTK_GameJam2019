@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] public AudioSource audioSource;
-
+    [SerializeField] public AudioSource audioSourcePauseMenu;
 
     private void Start()
     {
@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
 
         audioSource.Pause();
+        audioSourcePauseMenu.Play();
     }
 
     public void UnPauseGame()
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
         isInMenu = false;
 
         audioSource.Play();
+        audioSourcePauseMenu.Pause();
     }
 
     public void ShowImpulseIcon()
