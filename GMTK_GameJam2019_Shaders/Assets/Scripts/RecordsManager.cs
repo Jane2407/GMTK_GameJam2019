@@ -12,15 +12,21 @@ public class RecordsManager : MonoBehaviour
     public List<GameObject> playersCopies;
 
     public int maxCopies;
+    public bool isEnd;
 
     [Header("Players and ghost Prefabs")]
     public GameObject playerPrefab;
     public GameObject playersCopyPrefab;
 
+    [Header("Sounds")]
+    AudioSource audioSource;
+    public AudioClip deathAudio;
+
     private void Start()
     {
         replays = new List<List<RecordFrame>>();
         playersCopies = new List<GameObject>();
+        audioSource = GetComponent<AudioSource>();
         InstantiatePlayer();
     }
 
@@ -36,20 +42,16 @@ public class RecordsManager : MonoBehaviour
 
     void InstantiateCopies()
     {
+        if (replays.Count > 9)
+        {
+            replays.RemoveAt(0);
+        }
+
         foreach (List<RecordFrame> replay in replays)
         {
             GameObject go = Instantiate(playersCopyPrefab, transform);
             playersCopies.Add(go);
             go.GetComponent<DataReplay>().record = replay;
-        }
-
-        int temp = playersCopies.Count - 10;
-        if (temp > 0)
-        {
-            for (int i = 0; i < temp; i++)
-            {
-                Destroy(playersCopies[temp - 1]);
-            }
         }
     }
 
@@ -71,17 +73,22 @@ public class RecordsManager : MonoBehaviour
 
         //Pushing records to Replay list
         replays.Add(player.GetComponent<DataRecorder>().record);
-        Debug.Log(replays.Count);
+
         Destroy(player);
+
+        isEnd = false;
     }
 
     void RestartRound()
     {
-        DeleteAll();
-        InstantiatePlayer();
-        InstantiateCopies();
-
-        Debug.Log(replays.Count);
+        if (!isEnd)
+        {
+            isEnd = true;
+            DeleteAll();
+            InstantiatePlayer();
+            InstantiateCopies();
+            audioSource.PlayOneShot(deathAudio);
+        }
     }
 
     //Freezing all players and ghost when player died

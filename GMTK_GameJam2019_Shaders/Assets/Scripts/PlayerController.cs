@@ -31,10 +31,18 @@ public class PlayerController : MonoBehaviour
     [Header("Impulse Properties")]
     public bool hasImpulse;
 
+    [Header("Sounds")]
+    AudioSource audioSource;
+    public AudioClip impulseAudio;
+
+    public bool isDead;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         hasImpulse = true;
+        isDead = false;
     }
 
     void FixedUpdate()
@@ -63,6 +71,8 @@ public class PlayerController : MonoBehaviour
                 {
                     spikes[i].SendMessage("Impulse");
                 }
+
+                audioSource.PlayOneShot(impulseAudio);
 
                 hasImpulse = false;
             }
@@ -117,7 +127,11 @@ public class PlayerController : MonoBehaviour
 
     void Death()
     {
-        GameObject.FindGameObjectWithTag("RecordsManager").GetComponent<RecordsManager>().EndRound();
+        if (!isDead)
+        {
+            isDead = true;
+            GameObject.FindGameObjectWithTag("RecordsManager").GetComponent<RecordsManager>().EndRound();
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
