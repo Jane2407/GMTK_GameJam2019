@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1763924377858678603}
   - component: {fileID: 1763924377858678606}
   - component: {fileID: 1763924377858678604}
-  - component: {fileID: 7880648075993158449}
+  - component: {fileID: 8085642080802817050}
   m_Layer: 9
   m_Name: Spike
   m_TagString: Death
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1763924377858678602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.06500006, y: 0.06500006, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: a48d9807f7510c04f9b8621ad81e2116, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 34e9adb2316625646ad59c02b83ffec0, type: 3}
   m_Color: {r: 1, g: 0.21625574, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   activeTime: 2
   isActivated: 0
   isOneTime: 0
---- !u!60 &7880648075993158449
+--- !u!60 &8085642080802817050
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,9 +116,9 @@ PolygonCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15.36, y: 15.36}
+    border: {x: 0, y: 0, z: 0, w: 0.14533333}
+    pivot: {x: 0.5, y: 0.29296875}
+    oldSize: {x: 1.024, y: 1.024}
     newSize: {x: 15, y: 15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -126,6 +126,6 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -7.68, y: -7.68}
-      - {x: 7.68, y: -7.68}
-      - {x: 0, y: 5.5}
+    - - {x: -0.51, y: -0.3}
+      - {x: 0.51, y: -0.3}
+      - {x: 0, y: 0.58}
