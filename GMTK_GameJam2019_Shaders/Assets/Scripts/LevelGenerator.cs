@@ -12,7 +12,8 @@ public class LevelGenerator : MonoBehaviour
 
     [Header("Level prefabs")]
     [SerializeField] public GameObject floorPrefab;
-    [SerializeField] public GameObject wallPrefab;
+    [SerializeField] public GameObject wallLPrefab;
+    [SerializeField] public GameObject wallRPrefab;
     [SerializeField] public GameObject spikesPrefab;
 
     [Header("Position Properties")]
@@ -28,45 +29,45 @@ public class LevelGenerator : MonoBehaviour
             {
                 if (colorMapFloor.GetPixel(i, j).grayscale == 1f)
                 {
-                    Instantiate(floorPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), Quaternion.identity);
+                    Instantiate(floorPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), floorPrefab.transform.rotation);
                 }
             }
         }
 
-        ////Generate all spickes
-        //for (int i = 0; i < colorMapSpikes.width; i++)
-        //{
-        //    for (int j = 0; j < colorMapSpikes.height; j++)
-        //    {
-        //        if (colorMapSpikes.GetPixel(i, j).grayscale == 1f)
-        //        {
-        //            Instantiate(spikesPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), Quaternion.identity);
-        //        }
-        //    }
-        //}
+        //Generate all spickes
+        for (int i = 0; i < colorMapSpikes.width; i++)
+        {
+            for (int j = 0; j < colorMapSpikes.height; j++)
+            {
+                if (colorMapSpikes.GetPixel(i, j).grayscale == 1f)
+                {
+                    Instantiate(spikesPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), spikesPrefab.transform.rotation);
+                }
+            }
+        }
 
-        ////Generate All R Walls
-        //for (int i = 0; i < colorMapWallR.width; i++)
-        //{
-        //    for (int j = 0; j < colorMapWallR.height; j++)
-        //    {
-        //        if (colorMapWallR.GetPixel(i, j).grayscale == 1f)
-        //        {
-        //            Instantiate(wallPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), Quaternion.identity);
-        //        }
-        //    }
-        //}
+        //Generate All R Walls
+        for (int i = 0; i < colorMapWallL.width; i++)
+        {
+            for (int j = 0; j < colorMapWallL.height; j++)
+            {
+                if (colorMapWallL.GetPixel(i, j).grayscale == 1f)
+                {
+                    Instantiate(wallRPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), wallRPrefab.transform.rotation);
+                }
+            }
+        }
 
-        ////Generate all L walls
-        //for (int i = 0; i < colorMapWallL.width; i++)
-        //{
-        //    for (int j = 0; j < colorMapWallL.height; j++)
-        //    {
-        //        if (colorMapWallL.GetPixel(i, j).grayscale == 1f)
-        //        {
-        //            Instantiate(wallPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), Quaternion.identity);
-        //        }
-        //    }
-        //}
+        //Generate all L walls
+        for (int i = 0; i < colorMapWallR.width; i++)
+        {
+            for (int j = 0; j < colorMapWallR.height; j++)
+            {
+                if (colorMapWallR.GetPixel(i, j).grayscale == 1f)
+                {
+                    Instantiate(wallLPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0),wallLPrefab.transform.rotation);
+                }
+            }
+        }
     }
 }

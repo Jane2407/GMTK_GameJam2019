@@ -4008,7 +4008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742145316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 3.49, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4044,7 +4044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1753426756
 Transform:
   m_ObjectHideFlags: 0
@@ -4224,12 +4224,12 @@ PrefabInstance:
     - target: {fileID: 391851801668320472, guid: f20c1364a0ba2fa488c3e4c01c171189,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.47
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 391851801668320472, guid: f20c1364a0ba2fa488c3e4c01c171189,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.83
+      value: 2.89
       objectReference: {fileID: 0}
     - target: {fileID: 391851801668320472, guid: f20c1364a0ba2fa488c3e4c01c171189,
         type: 3}
@@ -4681,7 +4681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2142102254
 Transform:
   m_ObjectHideFlags: 0
@@ -4708,13 +4708,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cce797a8378d734282ee497f9d2398d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorMapFloor: {fileID: 2800000, guid: deacfaccaea266145b987d998f78d26d, type: 3}
-  colorMapWallR: {fileID: 0}
-  colorMapWallL: {fileID: 0}
-  colorMapSpikes: {fileID: 0}
+  colorMapFloor: {fileID: 2800000, guid: 597d357aef1b3bb4d9da05dc96573642, type: 3}
+  colorMapWallR: {fileID: 2800000, guid: 3aea01905bbd332498be1b0cc0da6cd7, type: 3}
+  colorMapWallL: {fileID: 2800000, guid: 6cc61d3165998a544a4417dcb7312afd, type: 3}
+  colorMapSpikes: {fileID: 2800000, guid: 3a712ad16debe1d4e88b59807554b159, type: 3}
   floorPrefab: {fileID: 1641616174627810868, guid: 078321a69174d7145914d519e4f999ac,
     type: 3}
-  wallPrefab: {fileID: 1641616174627810868, guid: 078321a69174d7145914d519e4f999ac,
+  wallLPrefab: {fileID: 775848997190653226, guid: c1f47a43c386eb74188997dfc40e5e7b,
+    type: 3}
+  wallRPrefab: {fileID: 1266752324002450029, guid: f2f55b55c91a2864ebd7caef4ba386d3,
     type: 3}
   spikesPrefab: {fileID: 1763924377858678602, guid: 52f37336db44f88469e7c53476ea9c1f,
     type: 3}

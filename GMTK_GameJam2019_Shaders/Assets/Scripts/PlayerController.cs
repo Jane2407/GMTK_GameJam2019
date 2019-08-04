@@ -47,9 +47,9 @@ public class PlayerController : MonoBehaviour
         //Limit x velocity
         rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, minVel, maxVel), rb.velocity.y);
 
-        if (rb.velocity.x > 0 && !isFacingRight)
+        if (rb.velocity.x > 0.2f && !isFacingRight)
             FlipCharacter();
-        else if (rb.velocity.x < 0 && isFacingRight)
+        else if (rb.velocity.x < 0.2f && isFacingRight)
             FlipCharacter();
     }
 
