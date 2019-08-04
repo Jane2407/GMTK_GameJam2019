@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: c7b19c6455deca8469d479edeed471c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9826ac0d3032a5540ae6e94165df5b5f, type: 3}
   m_Color: {r: 1, g: 0.21625574, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,6 +107,7 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -8, y: -8}
+      - {x: 8, y: -8}
       - {x: 8, y: 8}
       - {x: -8, y: 8}
 --- !u!114 &1763924377858678604
