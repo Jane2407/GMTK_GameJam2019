@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -184,8 +184,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 1
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!212 &176625899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &176625900
@@ -312,8 +312,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!212 &336772427
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &336772428
@@ -468,7 +468,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &351673877
@@ -502,8 +502,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!1 &576322968
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +566,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2.2505496}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &576322970
@@ -620,8 +620,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!60 &598605505
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -695,7 +695,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &598605507
@@ -804,7 +804,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &904912940
@@ -838,8 +838,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!1 &946302718
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,8 +876,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!60 &946302720
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -951,7 +951,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &946302722
@@ -1032,8 +1032,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!212 &1037419259
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1079,7 +1079,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1037419260
@@ -1132,8 +1132,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!60 &1123300679
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1207,7 +1207,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1123300681
@@ -1288,8 +1288,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!212 &1145157101
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1335,7 +1335,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1145157102
@@ -1388,8 +1388,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!60 &1157478289
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1463,7 +1463,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1157478291
@@ -1516,8 +1516,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!60 &1182583441
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1591,7 +1591,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1182583443
@@ -1657,7 +1657,6 @@ MonoBehaviour:
     type: 3}
   playersCopyPrefab: {fileID: 5048194412194886342, guid: 223c5c603bbd3c14885b901f84d39f54,
     type: 3}
-  startPoint: {fileID: 0}
 --- !u!1 &1284034553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,8 +1693,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!60 &1284034555
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1769,7 +1768,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1284034557
@@ -1822,8 +1821,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!60 &1308367210
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1897,7 +1896,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1308367212
@@ -2006,7 +2005,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1329347427
@@ -2040,8 +2039,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!1 &1440683868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2135,8 +2134,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
 --- !u!60 &1629210111
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2210,7 +2209,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1629210113
@@ -2402,7 +2401,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1953711847
@@ -2436,5 +2435,5 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  activeTime: 2
-  isActivated: 0
+  deactivationTime: 0
+  isTicking: 0
