@@ -18,10 +18,15 @@ public class RecordsManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject playersCopyPrefab;
 
+    [Header("Sounds")]
+    AudioSource audioSource;
+    public AudioClip deathAudio;
+
     private void Start()
     {
         replays = new List<List<RecordFrame>>();
         playersCopies = new List<GameObject>();
+        audioSource = GetComponent<AudioSource>();
         InstantiatePlayer();
     }
 
@@ -48,15 +53,6 @@ public class RecordsManager : MonoBehaviour
             playersCopies.Add(go);
             go.GetComponent<DataReplay>().record = replay;
         }
-
-        //int temp = playersCopies.Count - 10;
-        //if (temp > 0)
-        //{
-        //    for (int i = 0; i < temp; i++)
-        //    {
-        //        Destroy(playersCopies[temp - 1]);
-        //    }
-        //}
     }
 
     public void EndRound()
@@ -91,6 +87,7 @@ public class RecordsManager : MonoBehaviour
             DeleteAll();
             InstantiatePlayer();
             InstantiateCopies();
+            audioSource.PlayOneShot(deathAudio);
         }
     }
 
