@@ -31,10 +31,13 @@ public class PlayerController : MonoBehaviour
     [Header("Impulse Properties")]
     public bool hasImpulse;
 
+    public bool isDead;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         hasImpulse = true;
+        isDead = false;
     }
 
     void FixedUpdate()
@@ -117,7 +120,11 @@ public class PlayerController : MonoBehaviour
 
     void Death()
     {
-        GameObject.FindGameObjectWithTag("RecordsManager").GetComponent<RecordsManager>().EndRound();
+        if (!isDead)
+        {
+            isDead = true;
+            GameObject.FindGameObjectWithTag("RecordsManager").GetComponent<RecordsManager>().EndRound();
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

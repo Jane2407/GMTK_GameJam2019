@@ -49,68 +49,6 @@ public class DataReplay : MonoBehaviour
         }
     }
 
-    //void PhysicsCheck()
-    //{
-    //    RaycastHit2D groundCheck = Raycast(new Vector2(footOffsetX, footOffsetY), Vector2.down, groundDistance);
-
-    //    if (groundCheck)
-    //    {
-    //        if (groundCheck.collider.tag == "Floor")
-    //        {
-    //            groundCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
-    //        }
-    //    }
-
-    //    Vector2 grabDir = new Vector2(1f, 0f);
-
-    //    //Cast rays to look for a wall grab
-    //    RaycastHit2D rightWallCheck = Raycast(new Vector2(footOffsetX, eyeHeight), grabDir, grabDistance);
-    //    RaycastHit2D leftWallCheck = Raycast(new Vector2(footOffsetX, eyeHeight), -grabDir, grabDistance);
-
-
-    //    if (rightWallCheck)
-    //    {
-    //        if (rightWallCheck.collider.tag == "Floor")
-    //        {
-    //            rightWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
-    //        }
-    //    }
-    //    else if (leftWallCheck)
-    //    {
-    //        if (leftWallCheck.collider.tag == "Floor")
-    //        {
-    //            leftWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
-    //        }
-    //    }
-    //}
-
-
-    //RaycastHit2D Raycast(Vector2 offset, Vector2 rayDirection, float length)
-    //{
-    //    //Call the overloaded Raycast() method using the ground layermask and return the results
-    //    return Raycast(offset, rayDirection, length, groundLayer);
-    //}
-
-    //RaycastHit2D Raycast(Vector2 offset, Vector2 rayDirection, float length, LayerMask mask)
-    //{
-    //    //Record the player's position
-    //    Vector2 pos = transform.position;
-
-    //    //Send out the desired raycasr and record the result
-    //    RaycastHit2D hit = Physics2D.Raycast(pos + offset, rayDirection, length, mask);
-
-    //    //Show raycast in scene
-    //    if (drawDebugRaycasts)
-    //    {
-    //        //...determine the color based on if the raycast hit...
-    //        Color color = hit ? Color.red : Color.green;
-    //        //...and draw the ray in the scene view
-    //        Debug.DrawRay(pos + offset, rayDirection * length, color);
-    //    }
-    //    //Return the results of the raycast
-    //    return hit;
-    //}
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.tag == "Floor")
