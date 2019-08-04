@@ -11,4 +11,10 @@ public class GameManager : MonoBehaviour
     {
         Application.LoadLevel(sceneLevel);
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
 }
