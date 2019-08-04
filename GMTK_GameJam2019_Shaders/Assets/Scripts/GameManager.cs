@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         uiPanel.SetActive(false);
         pausePanel.SetActive(true);
+        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
 
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour
             uiPanel.SetActive(true);
         }
 
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         isInMenu = false;
     }
