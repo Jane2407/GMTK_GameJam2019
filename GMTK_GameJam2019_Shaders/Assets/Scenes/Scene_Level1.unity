@@ -39807,7 +39807,7 @@ MonoBehaviour:
   smoothSpeed: 0.02
   desiredPosition: {x: 0, y: 0, z: 0}
   xOffset: 5
-  yOffset: 7
+  yOffset: 3
 --- !u!1001 &1744619736
 PrefabInstance:
   m_ObjectHideFlags: 0
