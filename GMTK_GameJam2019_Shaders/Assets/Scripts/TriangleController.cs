@@ -8,6 +8,7 @@ public class TriangleController : MonoBehaviour
     [SerializeField] SpriteRenderer rend;
 
     [SerializeField] float time;
+    [SerializeField] public float impulseTime;
     [SerializeField] float deactivationTime;
     [SerializeField] bool isTicking;
 
@@ -62,6 +63,11 @@ public class TriangleController : MonoBehaviour
     public void Impulse()
     {
         SetActive();
+        Invoke("EndImpulse", impulseTime);
+    }
+
+    public void EndImpulse()
+    {
         anim.SetTrigger("Inactive");
     }
 

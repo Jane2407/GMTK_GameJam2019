@@ -99,7 +99,8 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  deactivationTime: 2
+  impulseTime: 0.5
+  deactivationTime: 3
   isTicking: 0
 --- !u!60 &7806197193816732101
 PolygonCollider2D:
