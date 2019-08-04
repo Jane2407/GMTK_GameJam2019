@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         gm.ShowImpulseIcon();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         PhysicsCheck();
 
