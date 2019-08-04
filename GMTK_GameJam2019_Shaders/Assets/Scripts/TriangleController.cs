@@ -51,8 +51,12 @@ public class TriangleController : MonoBehaviour
     {
         time = 0;
         isTicking = false;
-        rend.enabled = false;
-        anim.enabled = false;
+
+        if (gameObject.tag == "Floor")
+        {
+            rend.enabled = false;
+            anim.enabled = false;
+        }
     }
 
     public void Impulse()
