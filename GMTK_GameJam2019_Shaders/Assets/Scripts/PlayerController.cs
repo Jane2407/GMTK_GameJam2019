@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Status Flags")]
     public bool isOnGround;
+    public bool isJumping;
 
     [Header("Environment Check Properties")]
     public Transform raycastLeft;
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
         if (hitL || hitM || hitR)
         {
             isOnGround = true;
+            isJumping = false;
         }
         else
         {
@@ -114,12 +116,13 @@ public class PlayerController : MonoBehaviour
     {
         rb2d.AddForce(Vector2.right * Input.GetAxisRaw("Horizontal") * speed, ForceMode2D.Impulse);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            if (isOnGround)
+            if (isOnGround&&!isJumping)
             {
                 rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 isOnGround = false;
+                isJumping = true;
             }
         }
 
