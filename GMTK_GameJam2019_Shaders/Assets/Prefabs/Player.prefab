@@ -100,9 +100,9 @@ Rigidbody2D:
   m_AngularDrag: 0
   m_GravityScale: 3
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &5048194412194886338
 MonoBehaviour:
@@ -174,5 +174,5 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 7.5, y: -7.5}
-      - {x: 7.5, y: 7.5}
+      - {x: -7.5, y: 7.5}
       - {x: -7.5, y: -7.5}
