@@ -11,8 +11,11 @@ public class TriangleController : MonoBehaviour
     [SerializeField] float deactivationTime;
     [SerializeField] bool isTicking;
 
+    Animator anim; 
+
     private void Start()
     {
+        anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
     }
 
@@ -26,13 +29,15 @@ public class TriangleController : MonoBehaviour
             }
             else
             {
-                SetInactive();
+                anim.SetTrigger("Inactive");
             }
         }
     }
 
     public void SetActive()
     {
+        anim.enabled = true;
+
         time = 0;
         isTicking = true;
 
@@ -40,11 +45,6 @@ public class TriangleController : MonoBehaviour
         {
             rend.enabled = true;
         }
-        else
-        {
-            Debug.Log("Player was touching a triangle at start", this);
-        }
-        
     }
 
     void SetInactive()
@@ -52,6 +52,13 @@ public class TriangleController : MonoBehaviour
         time = 0;
         isTicking = false;
         rend.enabled = false;
+        anim.enabled = false;
+    }
+
+    public void Impulse()
+    {
+        SetActive();
+        anim.SetTrigger("Inactive");
     }
 
 }

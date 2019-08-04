@@ -28,10 +28,13 @@ public class PlayerController : MonoBehaviour
     public float groundDistance;
     public LayerMask groundLayer;
 
+    [Header("Impulse Properties")]
+    public bool hasImpulse;
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        hasImpulse = true;
     }
 
     void FixedUpdate()
@@ -41,6 +44,29 @@ public class PlayerController : MonoBehaviour
         Move();
 
         rb2d.velocity = new Vector2(Mathf.Clamp(rb2d.velocity.x, minVel, maxVel), rb2d.velocity.y);
+
+
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            if (hasImpulse)
+            {
+                GameObject[] platforms = GameObject.FindGameObjectsWithTag("Floor");
+
+                for (var i = 0; i < platforms.Length; i++)
+                {
+                    platforms[i].SendMessage("Impulse");
+                }
+
+                GameObject[] spikes = GameObject.FindGameObjectsWithTag("Death");
+
+                for (var i = 0; i < spikes.Length; i++)
+                {
+                    spikes[i].SendMessage("Impulse");
+                }
+
+                hasImpulse = false;
+            }
+        }
     }
 
     void PhysicsCheck()
