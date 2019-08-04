@@ -2,25 +2,71 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnFromTexture : MonoBehaviour
+public class LevelGenerator : MonoBehaviour
 {
-    [SerializeField] public Texture2D colorMap;
-    [SerializeField] public GameObject prefab;
+    [Header("Image")]
+    [SerializeField] public Texture2D colorMapFloor;
+    [SerializeField] public Texture2D colorMapWallR;
+    [SerializeField] public Texture2D colorMapWallL;
+    [SerializeField] public Texture2D colorMapSpikes;
 
+    [Header("Level prefabs")]
+    [SerializeField] public GameObject floorPrefab;
+    [SerializeField] public GameObject wallPrefab;
+    [SerializeField] public GameObject spikesPrefab;
+
+    [Header("Position Properties")]
     [SerializeField] public float multiplyerX;
     [SerializeField] public float multiplyerY;
 
     public void Start()
     {
-        for (int i = 0; i < colorMap.width; i++)
+        //Generate all floor platforms
+        for (int i = 0; i < colorMapFloor.width; i++)
         {
-            for (int j = 0; j < colorMap.height; j++)
+            for (int j = 0; j < colorMapFloor.height; j++)
             {
-                if (colorMap.GetPixel(i, j).grayscale < 0.5f)
+                if (colorMapFloor.GetPixel(i, j).grayscale == 1f)
                 {
-                    Instantiate(prefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), Quaternion.identity);
+                    Instantiate(floorPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), Quaternion.identity);
                 }
             }
         }
+
+        ////Generate all spickes
+        //for (int i = 0; i < colorMapSpikes.width; i++)
+        //{
+        //    for (int j = 0; j < colorMapSpikes.height; j++)
+        //    {
+        //        if (colorMapSpikes.GetPixel(i, j).grayscale == 1f)
+        //        {
+        //            Instantiate(spikesPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), Quaternion.identity);
+        //        }
+        //    }
+        //}
+
+        ////Generate All R Walls
+        //for (int i = 0; i < colorMapWallR.width; i++)
+        //{
+        //    for (int j = 0; j < colorMapWallR.height; j++)
+        //    {
+        //        if (colorMapWallR.GetPixel(i, j).grayscale == 1f)
+        //        {
+        //            Instantiate(wallPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), Quaternion.identity);
+        //        }
+        //    }
+        //}
+
+        ////Generate all L walls
+        //for (int i = 0; i < colorMapWallL.width; i++)
+        //{
+        //    for (int j = 0; j < colorMapWallL.height; j++)
+        //    {
+        //        if (colorMapWallL.GetPixel(i, j).grayscale == 1f)
+        //        {
+        //            Instantiate(wallPrefab, new Vector3(i * multiplyerX, j * multiplyerY, 0), Quaternion.identity);
+        //        }
+        //    }
+        //}
     }
 }

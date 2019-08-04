@@ -3738,6 +3738,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathBox
       objectReference: {fileID: 0}
+    - target: {fileID: 7459257467437855015, guid: 2b6644dfe30062e43a032603e5e9ddbd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7459257467437855014, guid: 2b6644dfe30062e43a032603e5e9ddbd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4022,6 +4027,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  smoothSpeed: 0.02
+  desiredPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1753426755
 GameObject:
   m_ObjectHideFlags: 0
@@ -4208,6 +4215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RecordManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 391851801668320473, guid: f20c1364a0ba2fa488c3e4c01c171189,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 391851801668320472, guid: f20c1364a0ba2fa488c3e4c01c171189,
         type: 3}
@@ -4653,3 +4665,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2142102253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2142102254}
+  - component: {fileID: 2142102255}
+  m_Layer: 0
+  m_Name: LevelGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2142102254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142102253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2142102255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142102253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cce797a8378d734282ee497f9d2398d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorMapFloor: {fileID: 2800000, guid: deacfaccaea266145b987d998f78d26d, type: 3}
+  colorMapWallR: {fileID: 0}
+  colorMapWallL: {fileID: 0}
+  colorMapSpikes: {fileID: 0}
+  floorPrefab: {fileID: 1641616174627810868, guid: 078321a69174d7145914d519e4f999ac,
+    type: 3}
+  wallPrefab: {fileID: 1641616174627810868, guid: 078321a69174d7145914d519e4f999ac,
+    type: 3}
+  spikesPrefab: {fileID: 1763924377858678602, guid: 52f37336db44f88469e7c53476ea9c1f,
+    type: 3}
+  multiplyerX: 1
+  multiplyerY: 1
