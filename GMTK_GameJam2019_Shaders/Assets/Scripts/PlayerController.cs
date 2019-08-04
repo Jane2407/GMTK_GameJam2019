@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
         //Chacking is player able to move on ground
         if (isHaging && !isOnGround)
             return;
-        if (Input.GetAxis("Horizontal") != 0/*&& isJumping*/)
+        if (Input.GetAxis("Horizontal") != 0)
         {
             //Add force for horizontal movement
             rb.AddForce(Vector2.right * Input.GetAxis("Horizontal") * speed, ForceMode2D.Impulse);
@@ -118,18 +118,13 @@ public class PlayerController : MonoBehaviour
 
     void MidAirMovement()
     {
-        if (Input.GetAxis("Vertical")>0)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isOnGround)
+            if (isOnGround&& !isJumping)
             {
                 rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
                 isJumping = true;
             } 
-            //else if (!isOnGround && !isJumping)
-            //{
-            //    rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-                
-            //}
         }
     }
 
