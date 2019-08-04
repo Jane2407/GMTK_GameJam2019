@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject settingPanel;
     [SerializeField] public GameObject creditsPanel;
     [SerializeField] public GameObject quitPanel;
+    [SerializeField] public GameObject pointPanel;
 
 
     private void Update()
@@ -82,5 +83,16 @@ public class GameManager : MonoBehaviour
     {
         hasImpulse = false;
         uiPanel.SetActive(false);
+    }
+
+    public void GotPoint()
+    {
+        pointPanel.SetActive(true);
+        Invoke("ClosePointPanel", 2);
+    }
+
+    public void ClosePointPanel()
+    {
+        pointPanel.SetActive(false);
     }
 }
