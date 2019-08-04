@@ -40,7 +40,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641616174627810868}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -106,9 +106,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -8, y: -8}
-      - {x: 8, y: 8}
-      - {x: -8, y: 8}
+    - - {x: -7.5, y: -7.5}
+      - {x: 7.5, y: 7.5}
+      - {x: -7.5, y: 7.5}
 --- !u!114 &1641616174627810866
 MonoBehaviour:
   m_ObjectHideFlags: 0
