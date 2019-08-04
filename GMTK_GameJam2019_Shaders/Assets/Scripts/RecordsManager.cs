@@ -10,6 +10,7 @@ public class RecordsManager : MonoBehaviour
     [Header("Player and ghosts")]
     public GameObject player;
     public List<GameObject> playersCopies;
+    public int maxCopies;
 
     [Header("Players and ghost Prefabs")]
     public GameObject playerPrefab;
@@ -33,6 +34,11 @@ public class RecordsManager : MonoBehaviour
 
     void InstantiateCopies()
     {
+        if (replays.Count == maxCopies)
+        {
+            replays.RemoveAt(0);
+        }
+
         foreach (List<RecordFrame> replay in replays)
         {
             GameObject go = Instantiate(playersCopyPrefab, transform);
