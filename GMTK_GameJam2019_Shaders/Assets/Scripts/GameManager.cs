@@ -7,14 +7,28 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public string Level01;
+    public string MainMenu;
 
     public GameObject pausePanel;
     public GameObject inGamePanel;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
+    }
 
     public void NextLevel()
     {
         Application.LoadLevel(Level01);
     }
+
+    /* public void MainMenu()
+    {
+        Application.LoadLevel(MainMenu);
+    }*/
 
     public void ExitGame()
     {
@@ -23,10 +37,11 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0f;
-        inGamePanel.SetActive(false);
-        pausePanel.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        Debug.Log("chamou, madame?");
+            Time.timeScale = 0f;
+            inGamePanel.SetActive(false);
+            pausePanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
     }
     public void UnPauseGame()
     {
