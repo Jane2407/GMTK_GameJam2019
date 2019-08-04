@@ -20,6 +20,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject pointPanel;
 
 
+    [SerializeField] public AudioSource audioSource;
+
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = false;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)&&!isInMenu)
@@ -53,7 +62,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         uiPanel.SetActive(false);
         pausePanel.SetActive(true);
+        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        audioSource.Pause();
     }
 
     public void UnPauseGame()
@@ -69,8 +81,11 @@ public class GameManager : MonoBehaviour
             uiPanel.SetActive(true);
         }
 
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         isInMenu = false;
+
+        audioSource.Play();
     }
 
     public void ShowImpulseIcon()

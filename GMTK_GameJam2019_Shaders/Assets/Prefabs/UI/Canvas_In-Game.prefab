@@ -715,6 +715,7 @@ MonoBehaviour:
   creditsPanel: {fileID: 8935121720788182763}
   quitPanel: {fileID: 8935121720251943583}
   pointPanel: {fileID: 679459269813474337}
+  audioSource: {fileID: 5718524409653248517}
 --- !u!1 &1876815715814497158
 GameObject:
   m_ObjectHideFlags: 0
