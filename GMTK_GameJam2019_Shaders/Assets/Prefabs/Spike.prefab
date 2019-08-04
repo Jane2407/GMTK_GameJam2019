@@ -99,7 +99,7 @@ MonoBehaviour:
     rgba: 0
   rend: {fileID: 0}
   time: 0
-  impulseTime: 0.5
+  impulseTime: 1
   deactivationTime: 3
   isTicking: 0
 --- !u!60 &-3055643906400111127
