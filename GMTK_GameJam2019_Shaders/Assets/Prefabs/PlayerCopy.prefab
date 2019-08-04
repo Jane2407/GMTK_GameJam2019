@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5048194412194886342}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.065, y: 0.065, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &1436094791933370084
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -71,10 +71,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9826ac0d3032a5540ae6e94165df5b5f, type: 3}
-  m_Color: {r: 1, g: 0.8389567, b: 0, a: 0.15294118}
+  m_Sprite: {fileID: 21300000, guid: f2be18e27fa4b014caec4eb2ef4eccd5, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.00022888184, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 15, y: 15}
   m_AdaptiveModeThreshold: 0.5
@@ -98,8 +98,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15, y: 15}
+    pivot: {x: 0, y: 1}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 15, y: 15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -107,9 +107,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 7.5, y: -7.5}
-      - {x: -7.5, y: 7.5}
-      - {x: -7.5, y: -7.5}
+    - - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0.5, y: -0.8660258}
 --- !u!114 &-2481318889999139557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,17 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd449e95ecca4b74084272035af987b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugRaycasts: 1
   record: []
-  isFacingRight: 1
-  footOffsetX: 0.03
-  footOffsetY: -0.67
-  groundDistance: -0.2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  eyeHeight: -0.1
-  grabDistance: 0.4
 --- !u!50 &7013255559119435970
 Rigidbody2D:
   serializedVersion: 4
@@ -143,7 +133,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 5048194412194886342}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -152,5 +142,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0

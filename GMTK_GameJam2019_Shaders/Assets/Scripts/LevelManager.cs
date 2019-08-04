@@ -4,65 +4,65 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] enum Mode { DEFAULT, ONETIME, GRAVITY, ROTATION};
+    //[SerializeField] enum Mode { DEFAULT, ONETIME, GRAVITY, ROTATION};
 
-    [SerializeField] Mode currentMode;
+    //[SerializeField] Mode currentMode;
 
-    [SerializeField] public GameObject level;
-    [SerializeField] public Transform levelDefualt;
-    [SerializeField] public PlayerController player;
-    [SerializeField] public GameObject playerPosPrefab;
+    //[SerializeField] public GameObject level;
+    //[SerializeField] public Transform levelDefualt;
+    //[SerializeField] public PlayerController player;
+    //[SerializeField] public GameObject playerPosPrefab;
 
 
 
-    private void Start()
-    {
-        currentMode = Mode.DEFAULT;
-    }
+    //private void Start()
+    //{
+    //    currentMode = Mode.DEFAULT;
+    //}
 
-    void ChangeMode(Mode newMode)
-    {
-        switch (newMode)
-        {
-            case Mode.DEFAULT:
+    //void ChangeMode(Mode newMode)
+    //{
+    //    switch (newMode)
+    //    {
+    //        case Mode.DEFAULT:
 
-                //Default gravity
-                player.gravity = player.defGravity;
+    //            //Default gravity
+    //            player.gravity = player.defGravity;
 
-                //Default level
-                level.transform.position = levelDefualt.transform.position;
-                level.transform.rotation = levelDefualt.transform.rotation;
+    //            //Default level
+    //            level.transform.position = levelDefualt.transform.position;
+    //            level.transform.rotation = levelDefualt.transform.rotation;
 
-                //Default platforms
-                foreach (GameObject child in level.transform)
-                {
-                    child.SetActive(true);
-                    child.GetComponent<SpriteRenderer>().enabled = false;
-                    child.GetComponent<TriangleController>().isOneTime = false;
-                }
-                break;
+    //            //Default platforms
+    //            foreach (GameObject child in level.transform)
+    //            {
+    //                child.SetActive(true);
+    //                child.GetComponent<SpriteRenderer>().enabled = false;
+    //                child.GetComponent<TriangleController>().isOneTime = false;
+    //            }
+    //            break;
 
-            case Mode.ONETIME:
+    //        case Mode.ONETIME:
 
-                //Set all platforms for one time only
-                foreach (GameObject child in level.transform)
-                {
-                    child.SetActive(true);
-                    child.GetComponent<TriangleController>().isOneTime = true;
-                }
-                break;
+    //            //Set all platforms for one time only
+    //            foreach (GameObject child in level.transform)
+    //            {
+    //                child.SetActive(true);
+    //                child.GetComponent<TriangleController>().isOneTime = true;
+    //            }
+    //            break;
 
-            case Mode.GRAVITY:
+    //        case Mode.GRAVITY:
 
-                //Set negative gravity
-                player.gravity = -player.gravity;
-                break;
+    //            //Set negative gravity
+    //            player.gravity = -player.gravity;
+    //            break;
 
-            case Mode.ROTATION:
-                break;
+    //        case Mode.ROTATION:
+    //            break;
 
-            default:
-                break;
-        }
-    }
+    //        default:
+    //            break;
+    //    }
+    //}
 }

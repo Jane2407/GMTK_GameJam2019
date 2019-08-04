@@ -8,29 +8,24 @@ public class TriangleController : MonoBehaviour
     [SerializeField] SpriteRenderer rend;
 
     [SerializeField] float time;
-    [SerializeField] float activeTime;
-    [SerializeField] bool isActivated;
-
-    [SerializeField] public bool isOneTime;
-
+    [SerializeField] float deactivationTime;
+    [SerializeField] bool isTicking;
 
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
-        time = activeTime;
     }
 
     private void Update()
     {
-        if (isActivated)
+        if (isTicking)
         {
-            if (time > 0)
+            if (time < deactivationTime)
             {
-                time -= Time.deltaTime ;
+                time += Time.deltaTime;
             }
             else
             {
-                time = activeTime;
                 SetInactive();
             }
         }
@@ -38,7 +33,8 @@ public class TriangleController : MonoBehaviour
 
     public void SetActive()
     {
-        isActivated = true;
+        time = 0;
+        isTicking = true;
 
         if (rend != null)
         {
@@ -53,12 +49,9 @@ public class TriangleController : MonoBehaviour
 
     void SetInactive()
     {
-        isActivated = false;
+        time = 0;
+        isTicking = false;
         rend.enabled = false;
-        if (isOneTime)
-        {
-            gameObject.SetActive(false);
-        }
     }
 
 }

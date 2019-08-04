@@ -6,6 +6,4 @@ using UnityEngine;
 public class RecordFrame
 {
     public Vector3 position;
-    public Vector2 velocity;
-
 }

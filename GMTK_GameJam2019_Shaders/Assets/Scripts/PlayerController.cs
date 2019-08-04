@@ -4,167 +4,107 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]  public bool drawDebugRaycasts = true;
+    public bool drawDebugRaycasts = true;
 
-    Rigidbody2D rb;
+    Rigidbody2D rb2d;
 
     [Header("Movement Properties")]
-    [SerializeField] private int maxVel = 5;                     //Player x max velocity
-    [SerializeField] private int minVel = -5;                    //Player x min velocity
-    [SerializeField] private int speed = 10;                    //Player speed
+    public int maxVel;
+    public int minVel;
+    public int speed;
 
     [Header("Jump Properties")]
-    [SerializeField] public int jumpForce = 9;                   //Force of jump
-    [SerializeField] public int defGravity;                      //Gravity default
-    [SerializeField] public int gravity;                         //Gravity current
+    public int jumpForce;
+    //[SerializeField] public int defGravity;
+    //[SerializeField] public int gravity;
 
     [Header("Status Flags")]
-    [SerializeField] public bool isOnGround;                     //Is the player on the ground?
-    [SerializeField] public bool isJumping;                      //Is player jumping?
-    [SerializeField] bool isFacingRight = true;				    //Direction player is facing
-    [SerializeField] public bool isHaging;                       //Is player haging on wall?
+    public bool isOnGround;
 
     [Header("Environment Check Properties")]
-    public float footOffsetX = .03f;            //X Offset of feet raycast
-    public float footOffsetY = -.67f;           //Y Offset of feet raycast
-    public float groundDistance = -.2f;         //Distance player is considered to be on the ground
-    public LayerMask groundLayer;               //Layer of the ground
-    public float eyeHeight = -.1f;              //Height of wall checks
-    public float grabDistance = .4f;            //The reach distance for wall grabs
+    public Transform raycastLeft;
+    public Transform raycastMiddle;
+    public Transform raycastRight;
+    public float groundDistance;
+    public LayerMask groundLayer;
+
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
         PhysicsCheck();
 
-        GroundMovement();
-        MidAirMovement();
+        Move();
 
-        //Limit x velocity
-        rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, minVel, maxVel), rb.velocity.y);
-
-        if (rb.velocity.x > 0.2f && !isFacingRight)
-            FlipCharacter();
-        else if (rb.velocity.x < 0.2f && isFacingRight)
-            FlipCharacter();
+        rb2d.velocity = new Vector2(Mathf.Clamp(rb2d.velocity.x, minVel, maxVel), rb2d.velocity.y);
     }
 
     void PhysicsCheck()
     {
-        RaycastHit2D groundCheck = Raycast(new Vector2(footOffsetX, footOffsetY), Vector2.down, groundDistance);
 
+        RaycastHit2D hitL = Physics2D.Raycast(raycastLeft.position, Vector2.down, groundDistance, groundLayer);
 
-        if (groundCheck)
+        RaycastHit2D hitM = Physics2D.Raycast(raycastMiddle.position, Vector2.down, groundDistance, groundLayer);
+
+        RaycastHit2D hitR = Physics2D.Raycast(raycastRight.position, Vector2.down, groundDistance, groundLayer);
+
+        if (drawDebugRaycasts)
         {
-            if (groundCheck.collider.tag == "Floor")
-            {
-                groundCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
-            }
-            else if(groundCheck.collider.tag == "Death")
-            {
-                Death();
-            }
+            Color colorL = hitL ? Color.red : Color.green;
+            Debug.DrawRay(raycastLeft.position, Vector2.down * groundDistance, colorL);
 
+            Color colorM = hitM ? Color.red : Color.green;
+            Debug.DrawRay(raycastMiddle.position, Vector2.down * groundDistance, colorM);
+
+            Color colorR = hitR ? Color.red : Color.green;
+            Debug.DrawRay(raycastRight.position, Vector2.down * groundDistance, colorR);
+        }
+
+        if (hitL || hitM || hitR)
+        {
             isOnGround = true;
-            isJumping = false;
         }
         else
         {
             isOnGround = false;
         }
-
-        Vector2 grabDir = new Vector2(1f, 0f);
-
-        //Cast rays to look for a wall grab
-        RaycastHit2D rightWallCheck = Raycast(new Vector2(footOffsetX, eyeHeight), grabDir, grabDistance);
-        RaycastHit2D leftWallCheck = Raycast(new Vector2(footOffsetX, eyeHeight), -grabDir, grabDistance);
-
-        if (rightWallCheck || leftWallCheck)
-            isHaging = true;
-        else
-            isHaging = false;
-
-        if (rightWallCheck)
-        {
-            if (rightWallCheck.collider.tag == "Floor")
-            {
-                rightWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
-            }
-        }
-        else if (leftWallCheck)
-        {
-            if (leftWallCheck.collider.tag == "Floor")
-            {
-                leftWallCheck.collider.gameObject.GetComponent<TriangleController>().SetActive();
-            }
-        }
     }
 
-    void GroundMovement()
+    void Move()
     {
-        //Chacking is player able to move on ground
-        if (isHaging && !isOnGround)
-            return;
-        if (Input.GetAxis("Horizontal") != 0)
-        {
-            //Add force for horizontal movement
-            rb.AddForce(Vector2.right * Input.GetAxis("Horizontal") * speed, ForceMode2D.Impulse);
-        }
-    }
+        rb2d.AddForce(Vector2.right * Input.GetAxisRaw("Horizontal") * speed, ForceMode2D.Impulse);
 
-    void MidAirMovement()
-    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isOnGround&& !isJumping)
+            if (isOnGround)
             {
-                rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-                isJumping = true;
-            } 
+                rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                isOnGround = false;
+            }
         }
-    }
 
-    void FlipCharacter() // Flip character
-    {
-        isFacingRight = !isFacingRight;
-        transform.Rotate(0f, 180f, 0f);
-    }
-
-    RaycastHit2D Raycast(Vector2 offset, Vector2 rayDirection, float length)
-    {
-        //Call the overloaded Raycast() method using the ground layermask and return the results
-        return Raycast(offset, rayDirection, length, groundLayer);
-    }
-
-    RaycastHit2D Raycast(Vector2 offset, Vector2 rayDirection, float length, LayerMask mask)
-    {
-        //Record the player's position
-        Vector2 pos = transform.position;
-
-        //Send out the desired raycasr and record the result
-        RaycastHit2D hit = Physics2D.Raycast(pos + offset, rayDirection, length, mask);
-
-        //Show raycast in scene
-        if (drawDebugRaycasts)
-        {
-            //...determine the color based on if the raycast hit...
-            Color color = hit ? Color.red : Color.green;
-            //...and draw the ray in the scene view
-            Debug.DrawRay(pos + offset, rayDirection * length, color);
-        }
-        //Return the results of the raycast
-        return hit;
     }
 
     void Death()
     {
-        GameObject go= GameObject.FindGameObjectWithTag("RecordsManager");
-        go.GetComponent<RecordsManager>().EndRound();
+        GameObject.FindGameObjectWithTag("RecordsManager").GetComponent<RecordsManager>().EndRound();
     }
 
-   
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Floor")
+        {
+            collision.collider.gameObject.GetComponent<TriangleController>().SetActive();
+        }
+        else if (collision.collider.tag == "Death")
+        {
+            collision.collider.gameObject.GetComponent<TriangleController>().SetActive();
+            Death();
+        }
+    }
+
 }

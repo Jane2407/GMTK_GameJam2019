@@ -15,10 +15,6 @@ public class RecordsManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject playersCopyPrefab;
 
-    public Transform startPoint;
-
-    public bool isRoundEnd;
-
     private void Start()
     {
         replays = new List<List<RecordFrame>>();
@@ -29,7 +25,7 @@ public class RecordsManager : MonoBehaviour
     //Instantiate player
     void InstantiatePlayer()
     {
-        GameObject go = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+        GameObject go = Instantiate(playerPrefab, transform.position, playerPrefab.transform.rotation);
         player = go;
 
         Camera.main.GetComponent<CameraFollow>().player = go.transform;
@@ -47,12 +43,8 @@ public class RecordsManager : MonoBehaviour
 
     public void EndRound()
     {
-        if (!isRoundEnd)
-        {
-            FreezeAll();
-            isRoundEnd = true;
-            Invoke("RestartRound", 1f);
-        }
+        FreezeAll();
+        Invoke("RestartRound", 1f);
     }
 
     void DeleteAll()
@@ -68,7 +60,6 @@ public class RecordsManager : MonoBehaviour
         //Pushing records to Replay list
         replays.Add(player.GetComponent<DataRecorder>().record);
         Destroy(player);
-        player = null;
 
     }
 
@@ -77,7 +68,6 @@ public class RecordsManager : MonoBehaviour
         DeleteAll();
         InstantiatePlayer();
         InstantiateCopies();
-        isRoundEnd = false;
     }
 
     //Freezing all players and ghost when player died
@@ -86,10 +76,10 @@ public class RecordsManager : MonoBehaviour
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
 
-        for (int j = 0; j < playersCopies.Count; j++)
+        for (int i = 0; i < playersCopies.Count; i++)
         {
-            if (playersCopies[j] != null)
-                playersCopies[j].GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            if (playersCopies[i] != null)
+                playersCopies[i].GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 
