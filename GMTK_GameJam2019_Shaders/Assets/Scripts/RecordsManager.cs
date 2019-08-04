@@ -5,11 +5,12 @@ using UnityEngine;
 public class RecordsManager : MonoBehaviour
 {
     [Header("Records List")]
-    public List<List<RecordFrame>> replays;
+    [SerializeField] public List<List<RecordFrame>> replays;
 
     [Header("Player and ghosts")]
     public GameObject player;
     public List<GameObject> playersCopies;
+
     public int maxCopies;
 
     [Header("Players and ghost Prefabs")]
@@ -30,20 +31,25 @@ public class RecordsManager : MonoBehaviour
         player = go;
 
         Camera.main.GetComponent<CameraFollow>().player = go.transform;
+        Camera.main.GetComponent<CameraFollow>().isOldPlayer = false;
     }
 
     void InstantiateCopies()
     {
-        if (replays.Count == maxCopies)
-        {
-            replays.RemoveAt(0);
-        }
-
         foreach (List<RecordFrame> replay in replays)
         {
             GameObject go = Instantiate(playersCopyPrefab, transform);
             playersCopies.Add(go);
             go.GetComponent<DataReplay>().record = replay;
+        }
+
+        int temp = playersCopies.Count - 10;
+        if (temp > 0)
+        {
+            for (int i = 0; i < temp; i++)
+            {
+                Destroy(playersCopies[temp - 1]);
+            }
         }
     }
 
@@ -65,8 +71,8 @@ public class RecordsManager : MonoBehaviour
 
         //Pushing records to Replay list
         replays.Add(player.GetComponent<DataRecorder>().record);
+        Debug.Log(replays.Count);
         Destroy(player);
-
     }
 
     void RestartRound()
@@ -74,6 +80,8 @@ public class RecordsManager : MonoBehaviour
         DeleteAll();
         InstantiatePlayer();
         InstantiateCopies();
+
+        Debug.Log(replays.Count);
     }
 
     //Freezing all players and ghost when player died
