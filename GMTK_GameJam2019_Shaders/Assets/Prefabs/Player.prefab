@@ -187,7 +187,7 @@ MonoBehaviour:
   raycastLeft: {fileID: 5569788416248459274}
   raycastMiddle: {fileID: 7572486471400980479}
   raycastRight: {fileID: 3751821511925975672}
-  groundDistance: 0.1
+  groundDistance: 0.05
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
