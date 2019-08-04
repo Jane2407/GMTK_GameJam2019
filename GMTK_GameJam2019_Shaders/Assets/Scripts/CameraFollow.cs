@@ -9,15 +9,22 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed = 0.125f;
     public Vector3 desiredPosition;
 
+    [SerializeField] public int xOffset = 5;
+    [SerializeField] public int yOffset = 7;
+
     void FixedUpdate()
     {
-        if (player.position.x > transform.position.x + 5 || player.position.x < transform.position.x - 5)
+        if (player.position.x > transform.position.x + xOffset || player.position.x < transform.position.x - xOffset)
         {
             desiredPosition = player.position;
         }
-          
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, new Vector3(desiredPosition.x, transform.position.y,transform.position.z), smoothSpeed);
-        transform.position = smoothedPosition;
 
+        if (player.position.y > transform.position.y + yOffset || player.position.y < transform.position.y - yOffset)
+        {
+            desiredPosition = player.position;
+        }
+
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, new Vector3(desiredPosition.x, desiredPosition.y,transform.position.z), smoothSpeed);
+        transform.position = smoothedPosition;
     }
 }
