@@ -192,6 +192,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   hasImpulse: 0
+  impulseAudio: {fileID: 0}
   isDead: 0
 --- !u!114 &5048194412194886396
 MonoBehaviour:
@@ -215,9 +216,10 @@ AudioSource:
   m_GameObject: {fileID: 5048194412194886342}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4851971223442707211, guid: 307dfafeb2ae50a43b11fde6ebb3c412,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

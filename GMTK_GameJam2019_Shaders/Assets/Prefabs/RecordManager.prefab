@@ -52,6 +52,7 @@ MonoBehaviour:
     type: 3}
   playersCopyPrefab: {fileID: 5048194412194886342, guid: 223c5c603bbd3c14885b901f84d39f54,
     type: 3}
+  deathAudio: {fileID: 0}
 --- !u!82 &1277013005142750442
 AudioSource:
   m_ObjectHideFlags: 0
@@ -61,9 +62,10 @@ AudioSource:
   m_GameObject: {fileID: 391851801668320473}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4851971223442707211, guid: 307dfafeb2ae50a43b11fde6ebb3c412,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
