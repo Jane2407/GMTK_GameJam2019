@@ -39,7 +39,16 @@ public class TriangleController : MonoBehaviour
     public void SetActive()
     {
         isActivated = true;
-        rend.enabled = true;
+
+        if (rend != null)
+        {
+            rend.enabled = true;
+        }
+        else
+        {
+            Debug.Log("Player was touching a triangle at start", this);
+        }
+        
     }
 
     void SetInactive()
