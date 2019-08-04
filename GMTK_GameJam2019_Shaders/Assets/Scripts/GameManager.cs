@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public string sceneLevel;
+    public string Level01;
 
-    public void AnotherScene()
+    public void NextLevel()
     {
-        Application.LoadLevel(sceneLevel);
+        Application.LoadLevel(Level01);
     }
 
     public void ExitGame()
