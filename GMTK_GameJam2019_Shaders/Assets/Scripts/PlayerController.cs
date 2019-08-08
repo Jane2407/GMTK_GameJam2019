@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        PhysicsCheck();
+        //PhysicsCheck();
 
         Move();
 
@@ -83,36 +83,46 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void PhysicsCheck()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-
-        RaycastHit2D hitL = Physics2D.Raycast(raycastLeft.position, Vector2.down, groundDistance, groundLayer);
-
-        RaycastHit2D hitM = Physics2D.Raycast(raycastMiddle.position, Vector2.down, groundDistance, groundLayer);
-
-        RaycastHit2D hitR = Physics2D.Raycast(raycastRight.position, Vector2.down, groundDistance, groundLayer);
-
-        if (drawDebugRaycasts)
-        {
-            Color colorL = hitL ? Color.red : Color.green;
-            Debug.DrawRay(raycastLeft.position, Vector2.down * groundDistance, colorL);
-
-            Color colorM = hitM ? Color.red : Color.green;
-            Debug.DrawRay(raycastMiddle.position, Vector2.down * groundDistance, colorM);
-
-            Color colorR = hitR ? Color.red : Color.green;
-            Debug.DrawRay(raycastRight.position, Vector2.down * groundDistance, colorR);
-        }
-
-        if (hitL || hitM || hitR)
-        {
-            isOnGround = true;
-        }
-        else
-        {
-            isOnGround = false;
-        }
+        isOnGround = true;
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isOnGround = false;
+    }
+
+    //void PhysicsCheck()
+    //{
+
+    //    RaycastHit2D hitL = Physics2D.Raycast(raycastLeft.position, Vector2.down, groundDistance, groundLayer);
+
+    //    RaycastHit2D hitM = Physics2D.Raycast(raycastMiddle.position, Vector2.down, groundDistance, groundLayer);
+
+    //    RaycastHit2D hitR = Physics2D.Raycast(raycastRight.position, Vector2.down, groundDistance, groundLayer);
+
+    //    if (drawDebugRaycasts)
+    //    {
+    //        Color colorL = hitL ? Color.red : Color.green;
+    //        Debug.DrawRay(raycastLeft.position, Vector2.down * groundDistance, colorL);
+
+    //        Color colorM = hitM ? Color.red : Color.green;
+    //        Debug.DrawRay(raycastMiddle.position, Vector2.down * groundDistance, colorM);
+
+    //        Color colorR = hitR ? Color.red : Color.green;
+    //        Debug.DrawRay(raycastRight.position, Vector2.down * groundDistance, colorR);
+    //    }
+
+    //    if (hitL || hitM || hitR)
+    //    {
+    //        isOnGround = true;
+    //    }
+    //    else
+    //    {
+    //        isOnGround = false;
+    //    }
+    //}
 
     void Move()
     {
